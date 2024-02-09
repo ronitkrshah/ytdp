@@ -2,12 +2,15 @@
 
 Download videos from command line using
 
-```bash
-# Build Files
-npx tsc
 
-# Usage
-yarn run start <link>
+### Build Files
+```bash
+npx tsc
+```
+
+### Usage
+```bash
+yarn run start <link> -p -n -o ~/Downloads
 ```
 
 ## Options:
@@ -17,3 +20,6 @@ yarn run start <link>
 `--numbered` or `-n` : Replace Video title with number
 
 `--output` or `-o` : Path where the files will be stored. Default `$PWD`
+
+## Note
+Don't add `-p` and `-n` if you're downloading a single video. `-p` is only for playlist
