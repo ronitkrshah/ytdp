@@ -6,7 +6,7 @@ export function handleArgs(args: Array<string>) {
   const dlProps: UserCommandProps = {
     uri: "",
     destination: process.cwd(),
-    mergeVideo: false,
+    numbered: false,
     playlist: false,
   };
 
@@ -37,9 +37,9 @@ export function handleArgs(args: Array<string>) {
         break;
 
       // merge
-      case "--merge":
-      case "-m":
-        dlProps.mergeVideo = true;
+      case "--numbered":
+      case "-n":
+        dlProps.numbered = true;
         break;
 
       // destination

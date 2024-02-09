@@ -4,7 +4,7 @@ import { videoDownload } from "./services/ytdl/ytdlService";
 
 export async function setupDownloader({
   destination,
-  mergeVideo,
+  numbered,
   playlist,
   uri,
 }: UserCommandProps) {
@@ -39,7 +39,7 @@ export async function setupDownloader({
       let videoID = video.url.match(/(?<=\?v=)[\w-]+/)[0];
       let videoLink = `https://www.youtube.com/watch?v=${videoID}`;
       const videoTitle =
-        mergeVideo === true
+        numbered === true
           ? String(index)
           : video.title.replaceAll(/[\W_]/g, " ");
 

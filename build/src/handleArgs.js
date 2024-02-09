@@ -8,7 +8,7 @@ function handleArgs(args) {
     const dlProps = {
         uri: "",
         destination: process.cwd(),
-        mergeVideo: false,
+        numbered: false,
         playlist: false,
     };
     // chcek for 0 args
@@ -34,9 +34,9 @@ function handleArgs(args) {
                 dlProps.playlist = true;
                 break;
             // merge
-            case "--merge":
-            case "-m":
-                dlProps.mergeVideo = true;
+            case "--numbered":
+            case "-n":
+                dlProps.numbered = true;
                 break;
             // destination
             case "--output":

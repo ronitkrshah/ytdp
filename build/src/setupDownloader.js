@@ -7,7 +7,7 @@ exports.setupDownloader = void 0;
 const get_youtube_id_1 = __importDefault(require("get-youtube-id"));
 const apiService_1 = require("./api/apiService");
 const ytdlService_1 = require("./services/ytdl/ytdlService");
-async function setupDownloader({ destination, mergeVideo, playlist, uri, }) {
+async function setupDownloader({ destination, numbered, playlist, uri, }) {
     // Video ID
     let videoId = (0, get_youtube_id_1.default)(uri);
     if (videoId === null)
@@ -37,7 +37,7 @@ async function setupDownloader({ destination, mergeVideo, playlist, uri, }) {
             // Extract videoId from URL
             let videoID = video.url.match(/(?<=\?v=)[\w-]+/)[0];
             let videoLink = `https://www.youtube.com/watch?v=${videoID}`;
-            const videoTitle = mergeVideo === true
+            const videoTitle = numbered === true
                 ? String(index)
                 : video.title.replaceAll(/[\W_]/g, " ");
             // Download Video
