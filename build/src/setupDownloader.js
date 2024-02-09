@@ -33,6 +33,7 @@ async function setupDownloader({ destination, numbered, playlist, uri, }) {
         if (matchArr !== null)
             playlistId = matchArr[0];
         const playlistData = await apiService_1.apiService.getPlaylistDetails(playlistId);
+        console.log("Downloading Videos ...");
         playlistData.relatedStreams.map(async (video, index) => {
             // Extract videoId from URL
             let videoID = video.url.match(/(?<=\?v=)[\w-]+/)[0];
