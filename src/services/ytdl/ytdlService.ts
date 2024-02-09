@@ -20,7 +20,7 @@ export async function videoDownload({
       process.stdout.write(".");
     })
     .on("finish", () => {
-      console.log("\nDownload Finished");
+      console.log(`\nDownload Finished [${title}]`);
     })
     .pipe(fs.createWriteStream(`${destination}/${title}.mp4`));
 }

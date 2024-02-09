@@ -15,7 +15,7 @@ async function videoDownload({ title, URI, destination, }) {
         process.stdout.write(".");
     })
         .on("finish", () => {
-        console.log("\nDownload Finished");
+        console.log(`\nDownload Finished [${title}]`);
     })
         .pipe(node_fs_1.default.createWriteStream(`${destination}/${title}.mp4`));
 }
