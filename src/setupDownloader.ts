@@ -25,18 +25,17 @@ export async function setupDownloader({
       destination,
     });
   } else {
+    // Download Full Playlist
     console.log("Fetching Data ...");
-
+    // Extract PlaylistID from URI
     let matchArr = uri.match(/(?<=list=)[\w-]+/);
     let playlistId = "";
-
     if (matchArr !== null) playlistId = matchArr[0];
-
-    if (playlistId === null) playlistId = "";
 
     const playlistData = await apiService.getPlaylistDetails(playlistId);
 
     playlistData.relatedStreams.map(async (video: any, index: number) => {
+      // Extract videoId from URL
       let videoID = video.url.match(/(?<=\?v=)[\w-]+/)[0];
       let videoLink = `https://www.youtube.com/watch?v=${videoID}`;
       const videoTitle =
@@ -51,6 +50,5 @@ export async function setupDownloader({
         destination: destination === undefined ? process.cwd() : destination,
       });
     });
-    console.log("Alive");
   }
 }

@@ -25,15 +25,16 @@ async function setupDownloader({ destination, mergeVideo, playlist, uri, }) {
         });
     }
     else {
+        // Download Full Playlist
         console.log("Fetching Data ...");
+        // Extract PlaylistID from URI
         let matchArr = uri.match(/(?<=list=)[\w-]+/);
         let playlistId = "";
         if (matchArr !== null)
             playlistId = matchArr[0];
-        if (playlistId === null)
-            playlistId = "";
         const playlistData = await apiService_1.apiService.getPlaylistDetails(playlistId);
         playlistData.relatedStreams.map(async (video, index) => {
+            // Extract videoId from URL
             let videoID = video.url.match(/(?<=\?v=)[\w-]+/)[0];
             let videoLink = `https://www.youtube.com/watch?v=${videoID}`;
             const videoTitle = mergeVideo === true
@@ -46,7 +47,6 @@ async function setupDownloader({ destination, mergeVideo, playlist, uri, }) {
                 destination: destination === undefined ? process.cwd() : destination,
             });
         });
-        console.log("Alive");
     }
 }
 exports.setupDownloader = setupDownloader;

@@ -17,7 +17,7 @@ export async function videoDownload({
   console.log("Downloading", title);
 
   ytdl(URI, {
-    filter: "video",
+    filter: "videoandaudio",
     quality: "highest",
   })
     .on("response", (res) => {

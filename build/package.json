@@ -1,12 +1,10 @@
 {
-    "name": "yt-downloader",
+    "name": "ytdp",
     "version": "0.0.1",
     "description": "Yet Another Youtube Video Downloader Script",
     "main": "build/index.js",
     "scripts": {
-        "build": "tsc",
-        "tsc": "tsc -w",
-        "dev": "nodemon build/index.js"
+        "start": "node build/index.js"
     },
     "author": "RKS",
     "license": "MIT",

@@ -11,7 +11,7 @@ let bar;
 async function videoDownload({ title, URI, destination, }) {
     console.log("Downloading", title);
     (0, ytdl_core_1.default)(URI, {
-        filter: "video",
+        filter: "videoandaudio",
         quality: "highest",
     })
         .on("response", (res) => {
