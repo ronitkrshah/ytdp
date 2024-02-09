@@ -39,7 +39,7 @@ async function setupDownloader({ destination, numbered, playlist, uri, }) {
             let videoID = video.url.match(/(?<=\?v=)[\w-]+/)[0];
             let videoLink = `https://www.youtube.com/watch?v=${videoID}`;
             const videoTitle = numbered === true
-                ? String(index)
+                ? `${String(index)} - ${video.title.replaceAll(/[\W_]/g, " ")}`
                 : video.title.replaceAll(/[\W_]/g, " ");
             // Download Video
             await (0, ytdlService_1.videoDownload)({
