@@ -42,7 +42,7 @@ export async function setupDownloader({
       let videoLink = `https://www.youtube.com/watch?v=${videoID}`;
       const videoTitle =
         numbered === true
-          ? `${String(index)} - ${video.title.replaceAll(/[\W_]/g, " ")}`
+          ? `${String(index + 1)} - ${video.title.replaceAll(/[\W_]/g, " ")}`
           : video.title.replaceAll(/[\W_]/g, " ");
 
       // Download Video
