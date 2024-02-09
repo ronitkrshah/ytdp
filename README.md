@@ -10,7 +10,11 @@ npx tsc
 
 ### Usage
 ```bash
+# Download Playlist
 yarn run start <link> -p -n -o ~/Downloads
+
+# Download Single Video
+yarn run start <link>
 ```
 
 ## Options:
